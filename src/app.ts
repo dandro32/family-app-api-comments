@@ -39,8 +39,9 @@ export const appFactory = (db: Db) => {
   io.on("connection", (socket) => {
     console.log("a user connected");
 
-    socket.on("chat message", (msg) => {
-      io.emit("chat message", msg);
+    socket.on("chatMessage", (msg) => {
+      console.log("chatMessage", msg);
+      io.emit("chatMessage", msg);
     });
 
     socket.on("disconnect", () => {
